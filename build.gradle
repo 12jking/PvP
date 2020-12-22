@@ -1,0 +1,19 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+apply plugin: 'java'
+
+group = 'PvP'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile files('C:\\Users\\jonas\\Downloads\\spigot-1.8.8-R0.1-SNAPSHOT-latest.jar')
+}
+
+compileJava.options.encoding = "UTF-8"

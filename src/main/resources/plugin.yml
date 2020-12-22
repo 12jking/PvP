@@ -1,0 +1,11 @@
+name: PvP
+version: 1.0
+main: de.j.pvp.main.Main
+api-version: 1.8
+authors: [ 12jking ]
+
+commands:
+  spawn:
+    description:
+  build:
+    description:
