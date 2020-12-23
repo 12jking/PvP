@@ -27,7 +27,7 @@ public class GliderEvent implements Listener {
         Player player = event.getPlayer();
         if (player.getInventory().getItemInHand().getType() == Material.FIREWORK){
             if (!gliding.contains(player)){
-                player.teleport(new Location(player.getWorld(), player.getLocation().getX(), 80, player.getLocation().getZ()));
+                player.teleport(new Location(player.getWorld(), player.getLocation().getX(), 30, player.getLocation().getZ()));
                 player.getLocation().add(new Vector(player.getLocation().getDirection().getBlockX(), -0.1, player.getLocation().getDirection().getBlockZ()));
                 gliding.add(player);
                 player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 500, 100));
@@ -55,7 +55,8 @@ public class GliderEvent implements Listener {
     @EventHandler
     public void fallDmg(EntityDamageEvent event){
         if (event.getEntity() instanceof Player){
-            if (gliding.contains((Player) event.getEntity())){
+            Player player = ((Player) event.getEntity()).getPlayer();
+            if (gliding.contains(player)){
                 if (event.getCause() == EntityDamageEvent.DamageCause.FALL){
                     event.setCancelled(true);
                 }
