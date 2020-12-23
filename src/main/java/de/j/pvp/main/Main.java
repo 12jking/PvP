@@ -28,7 +28,8 @@ public final class Main extends JavaPlugin {
         manager.registerEvents(new PhantomListener(), this);
         manager.registerEvents(new BlockListener(), this);
         manager.registerEvents(new ServerPing(), this);
-        manager.registerEvents(new GliderListener(), this);
+        //manager.registerEvents(new GliderListener(), this);
+        manager.registerEvents(new GliderEvent(), this);
     }
 
     @Override
