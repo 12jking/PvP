@@ -25,6 +25,7 @@ public class GliderEvent implements Listener {
     public void onGlide(PlayerInteractEvent event){
         Player player = event.getPlayer();
         if (player.getInventory().getItemInHand().getType() == Material.FIREWORK){
+            event.setCancelled(true);
             if (!gliding.contains(player)){
                 player.teleport(new Location(player.getWorld(), player.getLocation().getX(), 30, player.getLocation().getZ()));
                 player.getLocation().add(new Vector(player.getLocation().getDirection().getBlockX(), -0.1, player.getLocation().getDirection().getBlockZ()));
