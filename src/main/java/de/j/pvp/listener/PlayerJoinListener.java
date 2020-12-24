@@ -46,14 +46,17 @@ public class PlayerJoinListener implements Listener {
                 if (player.getLocation().getY() == 4){
                     if (KitHandler.playerKit.get(player) == null){
                         inLobby.remove(player);
-                        KitHandler.playerKit.put(player, KitHandler.checkKit(Material.STONE));
-                        player.getInventory().setContents(KitHandler.checkKit(Material.STONE).getItems());
-                        player.closeInventory();
-                        player.getInventory().setHelmet(KitHandler.checkKit(Material.STONE).getHelmet());
-                        player.getInventory().setChestplate(KitHandler.checkKit(Material.STONE).getChest());
-                        player.getInventory().setLeggings(KitHandler.checkKit(Material.STONE).getLeg());
-                        player.getInventory().setBoots(KitHandler.checkKit(Material.STONE).getBoots());
-                        player.sendMessage("§cDu hast jetzt das " + KitHandler.checkKit(Material.STONE).getName() + " Kit!");
+                        if (!BlockListener.allowed.contains(player)){
+                            KitHandler.playerKit.put(player, KitHandler.checkKit(Material.STONE));
+                            player.getInventory().setContents(KitHandler.checkKit(Material.STONE).getItems());
+                            player.closeInventory();
+                            player.getInventory().setHelmet(KitHandler.checkKit(Material.STONE).getHelmet());
+                            player.getInventory().setChestplate(KitHandler.checkKit(Material.STONE).getChest());
+                            player.getInventory().setLeggings(KitHandler.checkKit(Material.STONE).getLeg());
+                            player.getInventory().setBoots(KitHandler.checkKit(Material.STONE).getBoots());
+                            player.sendMessage("§cDu hast jetzt das " + KitHandler.checkKit(Material.STONE).getName() + " Kit!");
+                        }
+
                     }
                     return;
                 }

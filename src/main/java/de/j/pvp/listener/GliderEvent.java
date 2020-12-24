@@ -40,18 +40,19 @@ public class GliderEvent implements Listener {
                         player.setVelocity(v);
                         if (player.getLocation().getY() <= 4){
                             player.removePotionEffect(PotionEffectType.ABSORPTION);
+                            new BukkitRunnable(){
+
+                                @Override
+                                public void run() {
+                                    gliding.remove(player);
+                                }
+                            }.runTaskLaterAsynchronously(Main.getPlugin(), 180);
                             cancel();
                         }
 
                     }
                 }.runTaskTimer(Main.getPlugin(), 1, 1);
-                new BukkitRunnable(){
 
-                    @Override
-                    public void run() {
-                        gliding.remove(player);
-                    }
-                }.runTaskLaterAsynchronously(Main.getPlugin(), 180);
             }else
                 player.sendMessage("§cOn cooldown!");
 
