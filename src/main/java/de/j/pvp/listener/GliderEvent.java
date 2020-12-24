@@ -4,8 +4,7 @@ import de.j.pvp.main.Main;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -40,12 +39,18 @@ public class GliderEvent implements Listener {
                         player.setVelocity(v);
                         if (player.getLocation().getY() == 4){
                             player.removePotionEffect(PotionEffectType.ABSORPTION);
-                            gliding.remove(player);
                             cancel();
                         }
 
                     }
                 }.runTaskTimer(Main.getPlugin(), 1, 1);
+                new BukkitRunnable(){
+
+                    @Override
+                    public void run() {
+                        gliding.remove(player);
+                    }
+                }.runTaskLaterAsynchronously(Main.getPlugin(), 180);
             }else
                 player.sendMessage("§cOn cooldown!");
 
