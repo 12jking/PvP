@@ -36,9 +36,9 @@ public class GliderEvent implements Listener {
                     @Override
                     public void run() {
                         Vector v = player.getLocation().getDirection();
-                        v.setY(-0.3);
+                        v.setY(-0.1);
                         player.setVelocity(v);
-                        if (player.getLocation().getY() == 4){
+                        if (player.getLocation().getY() <= 4){
                             player.removePotionEffect(PotionEffectType.ABSORPTION);
                             cancel();
                         }

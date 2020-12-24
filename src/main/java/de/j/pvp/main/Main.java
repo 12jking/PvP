@@ -29,6 +29,7 @@ public final class Main extends JavaPlugin {
         manager.registerEvents(new BlockListener(), this);
         manager.registerEvents(new ServerPing(), this);
         manager.registerEvents(new GliderEvent(), this);
+        manager.registerEvents(new DropItemListener(), this);
     }
 
     @Override
