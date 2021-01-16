@@ -9,11 +9,15 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 repositories {
-    mavenCentral()
+    //mavenCentral()
+    maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
 }
 
 dependencies {
-    compile files('C:\\Users\\jonas\\Downloads\\spigot-1.8.8-R0.1-SNAPSHOT-latest.jar')
+    //compile files('C:\\Users\\jonas\\Downloads\\spigot-1.8.8-R0.1-SNAPSHOT-latest.jar')
+    compileOnly 'com.destroystokyo.paper:paper-api:1.8.8-R0.1-SNAPSHOT'
 }
 
 compileJava.options.encoding = "UTF-8"
