@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'com.destroystokyo.paper:paper-api:1.8.8-R0.1-SNAPSHOT'
+    compile files('C:\\Users\\jonas\\Downloads\\spigot-1.8.8-R0.1-SNAPSHOT-latest.jar')
 }
 
 compileJava.options.encoding = "UTF-8"

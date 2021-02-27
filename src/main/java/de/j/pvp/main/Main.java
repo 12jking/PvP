@@ -1,7 +1,7 @@
 package de.j.pvp.main;
 
 import de.j.pvp.commands.BuildCmd;
-import de.j.pvp.commands.SpawnLocCmd;
+import de.j.pvp.commands.SuicideCommand;
 import de.j.pvp.kits.KitHandler;
 import de.j.pvp.listener.*;
 import org.bukkit.Bukkit;
@@ -14,9 +14,8 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        System.out.println("HI");
-        getCommand("spawn").setExecutor(new SpawnLocCmd());
         getCommand("build").setExecutor(new BuildCmd());
+        getCommand("suicide").setExecutor(new SuicideCommand());
         plugin = this;
         PluginManager manager = Bukkit.getPluginManager();
         manager.registerEvents(new PlayerJoinListener(), this);
@@ -30,6 +29,7 @@ public final class Main extends JavaPlugin {
         manager.registerEvents(new ServerPing(), this);
         manager.registerEvents(new GliderEvent(), this);
         manager.registerEvents(new DropItemListener(), this);
+        manager.registerEvents(new PlayerRespawnListener(), this);
     }
 
     @Override

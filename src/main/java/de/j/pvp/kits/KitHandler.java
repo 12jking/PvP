@@ -1,5 +1,6 @@
 package de.j.pvp.kits;
 
+import de.j.pvp.listener.PlayerJoinListener;
 import de.j.pvp.main.Main;
 import de.j.pvp.util.ItemBuilder;
 import org.bukkit.Material;
@@ -61,7 +62,7 @@ public class KitHandler implements Listener {
                     player.getInventory().setLeggings(checkKit(event.getCurrentItem().getType()).getLeg());
                     player.getInventory().setBoots(checkKit(event.getCurrentItem().getType()).getBoots());
                     player.sendMessage("§cDu hast jetzt das " + checkKit(event.getCurrentItem().getType()).getName() + " Kit!");
-
+                    PlayerJoinListener.inLobby.remove(player);
                 }
             }
 

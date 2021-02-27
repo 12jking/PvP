@@ -8,7 +8,7 @@ public class PlayerLeaveListener implements Listener {
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
-        event.setQuitMessage("§7[§c-§7]" + event.getPlayer().getName());
+        event.setQuitMessage("§7[§c-§7] " + event.getPlayer().getName());
         if (BlockListener.allowed.contains(event.getPlayer())){
             BlockListener.allowed.remove(event.getPlayer());
         }

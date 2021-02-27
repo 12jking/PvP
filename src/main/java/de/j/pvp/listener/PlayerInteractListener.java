@@ -18,16 +18,14 @@ public class PlayerInteractListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event){
         if (PlayerJoinListener.inLobby.contains(event.getPlayer())){
-            //if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK){
-                if (event.getPlayer().getItemInHand().getType() == Material.CHEST){
-                    event.setCancelled(true);
-                    Inventory inventory = Bukkit.createInventory(null, 9*1, "§6§oKits");
-                    for (int i = KitHandler.kits.size() - 1; i != -1; i --){
-                        inventory.addItem(new ItemBuilder().setMaterial(KitHandler.kits.get(i).getMaterial()).setName(KitHandler.kits.get(i).getName()).build());
-                    }
-                    event.getPlayer().openInventory(inventory);
+            if (event.getPlayer().getItemInHand().getType() == Material.CHEST){
+                event.setCancelled(true);
+                Inventory inventory = Bukkit.createInventory(null, 9*1, "§6§oKits");
+                for (int i = KitHandler.kits.size() - 1; i != -1; i --){
+                    inventory.addItem(new ItemBuilder().setMaterial(KitHandler.kits.get(i).getMaterial()).setName(KitHandler.kits.get(i).getName()).build());
                 }
-            //}
+                event.getPlayer().openInventory(inventory);
+            }
 
         }
 

@@ -1,9 +1,6 @@
 package de.j.pvp.listener;
 
 import de.j.pvp.main.Main;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,7 +27,7 @@ public class GliderEvent implements Listener {
                 player.teleport(new Location(player.getWorld(), player.getLocation().getX(), 30, player.getLocation().getZ()));
                 player.getLocation().add(new Vector(player.getLocation().getDirection().getBlockX(), -0.1, player.getLocation().getDirection().getBlockZ()));
                 gliding.add(player);
-                player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 500, 100));
+                //player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 500, 100));
                 new BukkitRunnable(){
 
                     @Override
@@ -38,7 +35,7 @@ public class GliderEvent implements Listener {
                         Vector v = player.getLocation().getDirection();
                         v.setY(-0.1);
                         player.setVelocity(v);
-                        if (player.getLocation().getY() <= 4){
+                        if (player.getLocation().getY() == player.getWorld().getHighestBlockYAt((int) player.getLocation().getX(), (int) player.getLocation().getZ())){
                             player.removePotionEffect(PotionEffectType.ABSORPTION);
                             new BukkitRunnable(){
 
